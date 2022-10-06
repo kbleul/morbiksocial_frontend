@@ -18,12 +18,12 @@ const getChat = useCallback( async () => {
           headers : { "Authorization": `Bearer ${user.token}` }
           }
 
-     let response = await fetch(`api/conversation/between/${user._id}/${chatingWith}`, options)
+     let response = await fetch(`${process.env.SERVER}/api/conversation/between/${user._id}/${chatingWith}`, options)
 
      let json = await response.json()
 
      if(json !== null) {
-      response = await fetch(`api/message/${json._id}` , options)
+      response = await fetch(`${process.env.SERVER}/api/message/${json._id}` , options)
 
       if(response.ok) {
           json = await response.json()

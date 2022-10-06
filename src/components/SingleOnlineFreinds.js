@@ -14,7 +14,7 @@ const getOnlineUsers = useCallback( async () => {
         headers : { "Authorization": `Bearer ${user.token}` }
         }
 
-    const response = await fetch( `api/${onlineuser_id}`, options)
+    const response = await fetch( `${process.env.SERVER}/api/${onlineuser_id}`, options)
     const { _id , username, profilePicture } = await response.json()
         
         set_currentuser({ _id , username, profilePicture })
@@ -30,7 +30,6 @@ useEffect(() => {  getOnlineUsers()  }, [getOnlineUsers])
             set_chatingWith(currentuser._id)
             set_currentpage && set_currentpage("chatbox")
             set_chatingWith_name(currentuser.username)
-            console.log(currentuser.username)
         }}>
             <img className="max-w-[12rem] max-h-[10rem] w-3/5 h-40 lg:w-4/5 lg:h-48 rounded-full " src={`/public/data/uploads/${currentuser.profilePicture}`} alt={currentuser.username} />
             <p className="text-sm text-center w-full">{currentuser.username}</p>

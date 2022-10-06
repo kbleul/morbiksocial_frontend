@@ -18,7 +18,6 @@ const Signup = () => {
   const { signup , isloading , error } = useSignup()
 
 
-
 const handleSubmit = async (e) => {
     e.preventDefault()
 

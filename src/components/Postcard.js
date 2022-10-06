@@ -23,7 +23,7 @@ const likeUnlike_post = async () => {
       headers : { "Authorization" : `Bearer ${user.token}` }
       }
 
-      const response = await fetch(`api/posts/like/${post._id}`, options)
+      const response = await fetch(`${process.env.SERVER}/api/posts/like/${post._id}`, options)
       const json = await response.json()
      
       if(json.status === "Liked") { 
@@ -45,8 +45,8 @@ const handleFollow = async () => {
 
     let response 
     
-    if(isfollowed) {  response = await fetch(`api/user/unfollow/${post.userId}`, options) }
-    else {  response = await fetch(`api/user/follow/${post.userId}`, options)  }
+    if(isfollowed) {  response = await fetch(`${process.env.SERVER}/api/user/unfollow/${post.userId}`, options) }
+    else {  response = await fetch(`${process.env.SERVER}/api/user/follow/${post.userId}`, options)  }
 
     const json = await response.json()
     

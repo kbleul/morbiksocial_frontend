@@ -35,7 +35,7 @@ const updateUser = async (id , token) => {
         headers : { "Authorization" : `Bearer ${token}` }
     }
 
-    const response = await fetch(`/api/user/${id}` , options )
+    const response = await fetch(`${process.env.SERVER}//api/user/${id}` , options )
     const json = await response.json()
 
     const newuser = { ...json , token }

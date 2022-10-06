@@ -24,7 +24,7 @@ const getUser = useCallback( async (userid) => {
       headers : { "Authorization" : `Bearer ${user.token}` }
     }
 
-    const fetchuser = await fetch(`api/user/${userid}` , options)
+    const fetchuser = await fetch(process.env.SERVER + `api/user/${userid}` , options)
 
     const json = await fetchuser.json()
 
@@ -43,7 +43,7 @@ const fetchRelationships = useCallback( async (type) => {
           headers: { "Authorization" : `Bearer ${user.token}` },
     }
 
-        const url = id !== user._id ? `api/${type}/${id}` : `api/${type}`
+        const url = id !== user._id ? `${process.env.SERVER}/api/${type}/${id}` : `${process.env.SERVER}/api/${type}`
         const response = await fetch( url , options)
 
         const json = await response.json()
@@ -67,7 +67,7 @@ const fetchRelationships = useCallback( async (type) => {
       }
   
       const url = id !== user._id ?
-                  `api/posts/current/${id}` : `api/posts/current`
+                  `${process.env.SERVER}/api/posts/current/${id}` : `${process.env.SERVER}/api/posts/current`
       const getpost = await fetch(url, options)
   
       let json = await getpost.json()
@@ -133,11 +133,3 @@ const fetchRelationships = useCallback( async (type) => {
 
 export default Home
 
-//
-/*
-
-
-
-
-
-*/

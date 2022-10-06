@@ -28,7 +28,7 @@ const postCoverPicture = async (e) => {
 
           formData.append('cover', file);
 
-      fetch(`/api/user/cover/updateCover/${user._id}`,
+      fetch(`${process.env.SERVER}/api/user/cover/updateCover/${user._id}`,
         {    
           method: 'PUT',   
           body: formData,

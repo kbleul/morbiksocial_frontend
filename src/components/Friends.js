@@ -22,7 +22,7 @@ const fetchRelationships = useCallback( async () => {
             headers: { "Authorization" : `Bearer ${user.token}` },
     }
 
-    const response = await fetch( `api/following` , options)
+    const response = await fetch( `${process.env.SERVER}/api/following` , options)
 
     const json = await response.json()
 

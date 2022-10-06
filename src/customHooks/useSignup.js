@@ -22,7 +22,7 @@ export const useSignup = () => {
         }
 
 
-        const response = await fetch("/api/auth/signup" , options )
+        const response = await fetch(process.env.SERVER + "/api/auth/signup" , options )
         const json = await response.json()
 
         if(!response.ok) {
@@ -31,7 +31,7 @@ export const useSignup = () => {
             return null
         }
 
-        else { console.log("ola")
+        else { 
             //save user to local storage
             localStorage.setItem("user" , JSON.stringify(json))
 

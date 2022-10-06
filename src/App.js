@@ -18,7 +18,6 @@ function App() {
 
   return (
     <div className="relative" >
-
        { user && <Navbar />}
 
           <Routes>
@@ -31,14 +30,10 @@ function App() {
             <Route path="/chat" element= { user ?  <Chat /> : <Navigate to="/login" /> } />
      
           </Routes>
-  
+
     </div>
   );
 }
 
 export default App;
 
-/*
-
-       <Route path="/myhome/:id" element= { user ?  <Home /> : <Navigate to="/login" /> } />
-*/

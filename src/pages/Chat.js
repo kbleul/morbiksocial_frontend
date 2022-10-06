@@ -29,7 +29,7 @@ const addNotification = useCallback( async(senderId) => {
       headers : { "Authorization": `Bearer ${user.token}` }
     }
 
-    const response = await fetch(`api/${senderId}` , options)
+    const response = await fetch(`${process.env.SERVER}/api/${senderId}` , options)
 
     if(response.ok) {
       const {username} = await response.json()
@@ -46,7 +46,7 @@ useEffect(() => {
     }
   })  
 
-  socket.current.on("getMessage", data => { console.log("got message")
+  socket.current.on("getMessage", data => {
     set_arrivalmessage({
       sender : data.senderId,
       text : data.text,

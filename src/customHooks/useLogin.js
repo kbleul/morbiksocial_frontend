@@ -27,7 +27,7 @@ export const useLogin = () => {
 
         const response = await fetch(process.env.SERVER + "/api/auth/login" , options )
         const json = await response.json()
-console.log(json)
+        
         if(!response.ok) {
             setisloading(false)
             seterror(json.error)
