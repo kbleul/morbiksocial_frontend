@@ -25,9 +25,9 @@ export const useLogin = () => {
             body : JSON.stringify({username_or_email , password})
         }
 
-        const response = await fetch(process.env.SERVER + "/api/auth/login" , options )
+        const response = await fetch("https://morbiksocial-api.onrender.com/api/auth/login" , options )
         const json = await response.json()
-        
+
         if(!response.ok) {
             setisloading(false)
             seterror(json.error)
