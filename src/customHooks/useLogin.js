@@ -5,6 +5,8 @@ import { AUTH_ACTIONS } from "../contex/authContext"
 import { useAuthContext } from "./useMyContext"
 import { useNewUserContext } from "./useMyContext"
 
+import axios from "axios"
+
 
 export const useLogin = () => {
     
@@ -19,13 +21,16 @@ export const useLogin = () => {
         seterror(null)
         setisloading(true)
 
-        const options = {
-            method : "POST",
-            headers : { "content-Type" : "application/json" },
-            body : JSON.stringify({username_or_email , password})
-        }
-
-        const response = await fetch("https://morbiksocial-api.onrender.com/api/auth/login" , options )
+        // const options = {
+        //     method : "POST",
+        //     headers : { "content-Type" : "application/json" },
+        //     body : JSON.stringify({username_or_email , password})
+        // }
+        
+        const response = await axios.post("https://morbiksocial-api.onrender.com/api/auth/login", {
+            username_or_email,
+            password
+          })
         const json = await response.json()
 
         if(!response.ok) {
