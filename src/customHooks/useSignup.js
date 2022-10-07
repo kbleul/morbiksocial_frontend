@@ -25,15 +25,12 @@ export const useSignup = () => {
         }
 
 
-        const response = await axios({
-            method: 'post',
-            url: "https://morbiksocial-api.onrender.com/api/auth/signup",
-            data: {
-                "email" : email,
-                "username" : username,
-                "password" : password,
-            }
-        })
+        const response = await axios.post("https://morbiksocial-api.onrender.com/api/auth/signup",
+         {
+            "email" : email,
+            "username" : username,
+            "password" : password,
+         })
         
 // fetch("https://morbiksocial-api.onrender.com/api/auth/signup" , options )
         const json = await response.json()
