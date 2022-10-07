@@ -30,7 +30,10 @@ export const useLogin = () => {
             })
          }
         
-        const response = await fetch("https://morbiksocial-api.onrender.com/api/auth/login" , options)
+        const response = await axios.post("https://morbiksocial-api.onrender.com/api/auth/login" , {
+            "username_or_email" : username_or_email,
+            "password" : password,
+         })
         //  axios({
         //     method: 'post',
         //     url: "https://morbiksocial-api.onrender.com/api/auth/login",
