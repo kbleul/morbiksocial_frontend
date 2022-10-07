@@ -24,10 +24,10 @@ export const useLogin = () => {
          const options = {
              method : "POST",
              headers : { "content-Type" : "application/json" },
-             body : JSON.stringify({
+             body : {
                "username_or_email" : username_or_email,
                "password" : password,
-          })
+            }
          }
         
         const response = await fetch("https://morbiksocial-api.onrender.com/api/auth/login" , options)

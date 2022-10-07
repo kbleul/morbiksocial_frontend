@@ -28,11 +28,11 @@ export const useSignup = () => {
         const response = await axios({
             method: 'post',
             url: "https://morbiksocial-api.onrender.com/api/auth/signup",
-            data: JSON.stringify({
+            data: {
                 "email" : email,
                 "username" : username,
                 "password" : password,
-            })
+            }
         })
         
 // fetch("https://morbiksocial-api.onrender.com/api/auth/signup" , options )
