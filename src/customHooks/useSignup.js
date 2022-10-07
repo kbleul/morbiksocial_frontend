@@ -4,6 +4,9 @@ import { AUTH_ACTIONS } from "../contex/authContext"
 import { useAuthContext } from "./useMyContext"
 import { useNewUserContext } from "./useMyContext"
 
+import axios from "axios"
+
+
 export const useSignup = () => {
     const [error , seterror] = useState(null)
     const [isloading , setisloading] = useState(null)
