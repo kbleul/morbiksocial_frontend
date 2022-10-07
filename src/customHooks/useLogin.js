@@ -27,11 +27,20 @@ export const useLogin = () => {
         //     body : JSON.stringify({username_or_email , password})
         // }
         
-        const response = await axios.post("https://morbiksocial-api.onrender.com/api/auth/login", JSON.stringify({
-            username_or_email,
-            password,
-            hii:"hii"
-          }))
+        const response = await axios({
+            method: 'post',
+            url: "https://morbiksocial-api.onrender.com/api/auth/login",
+            data: {
+                username_or_email,
+                password,
+            }
+          })
+          
+//   axios.post("https://morbiksocial-api.onrender.com/api/auth/login", JSON.stringify({
+//     username_or_email,
+//     password,
+//     hii:"hii"
+//   }))
         const json = await response.json()
 
         if(!response.ok) {
