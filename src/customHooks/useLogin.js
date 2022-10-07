@@ -30,7 +30,7 @@ export const useLogin = () => {
         const response = await axios({
             method: 'post',
             url: "https://morbiksocial-api.onrender.com/api/auth/login",
-            data: {
+            body: {
                 username_or_email,
                 password,
             }
