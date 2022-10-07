@@ -44,7 +44,7 @@ const handleSubmit = async (e) => {
                       </div>
                     }
 
-                <button className="md:w-[30%] w-1/2 md:ml-[30%] ml-[25%] mt-16 mb-4 py-2 px-4 bg-black hover:bg-gray-800
+                <button className="md:w-[30%] w-1/2 md:ml-[35%] ml-[25%] mt-16 mb-4 py-2 px-4 bg-black hover:bg-gray-800
                  text-white text-xl font-bold rounded-full">Log in</button>
 
             </form>
