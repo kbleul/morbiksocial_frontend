@@ -41,7 +41,7 @@ const handleSubmit = async (e) => {
         }
       }
 
-      let sendpost = await fetch(`${process.env.SERVER}/api/share/image`, options)
+      let sendpost = await fetch(`https://morbiksocial-api.onrender.com/api/share/image`, options)
       let json = await sendpost.json()
 
       options = {
@@ -53,7 +53,7 @@ const handleSubmit = async (e) => {
         body: JSON.stringify({ desc: disc })
       }
 
-      sendpost = await fetch(`${process.env.SERVER}/api/share/${json._id}`, options)
+      sendpost = await fetch(`https://morbiksocial-api.onrender.com/api/share/${json._id}`, options)
 
       let json_two = await sendpost.json()
 
@@ -74,7 +74,7 @@ const handleSubmit = async (e) => {
         body: JSON.stringify({ desc: disc })
       }
 
-      const sendpost = await fetch(`${process.env.SERVER}/api/share/image`, options)
+      const sendpost = await fetch(`https://morbiksocial-api.onrender.com/api/share/image`, options)
       let json_two = await sendpost.json()
 
       set_src(null)

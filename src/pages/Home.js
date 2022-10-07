@@ -43,7 +43,7 @@ const fetchRelationships = useCallback( async (type) => {
           headers: { "Authorization" : `Bearer ${user.token}` },
     }
 
-        const url = id !== user._id ? `${process.env.SERVER}/api/${type}/${id}` : `${process.env.SERVER}/api/${type}`
+        const url = id !== user._id ? `https://morbiksocial-api.onrender.com/api/${type}/${id}` : `https://morbiksocial-api.onrender.com/api/${type}`
         const response = await fetch( url , options)
 
         const json = await response.json()
@@ -67,7 +67,7 @@ const fetchRelationships = useCallback( async (type) => {
       }
   
       const url = id !== user._id ?
-                  `${process.env.SERVER}/api/posts/current/${id}` : `${process.env.SERVER}/api/posts/current`
+                  `https://morbiksocial-api.onrender.com/api/posts/current/${id}` : `https://morbiksocial-api.onrender.com/api/posts/current`
       const getpost = await fetch(url, options)
   
       let json = await getpost.json()

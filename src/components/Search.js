@@ -22,7 +22,7 @@ const getSearchSuggestions = async(word) => {
     }
 
     if(word !== "" || word !== " ")      {
-      const fetchquery = await fetch(`${process.env.SERVER}/api/user/search`, options)
+      const fetchquery = await fetch(`https://morbiksocial-api.onrender.com/api/user/search`, options)
 
       const json = await fetchquery.json()
       setsuggestions(json)

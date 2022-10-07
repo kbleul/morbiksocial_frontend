@@ -23,7 +23,7 @@ const likeUnlike_post = async () => {
       headers : { "Authorization" : `Bearer ${user.token}` }
       }
 
-      const response = await fetch(`${process.env.SERVER}/api/posts/like/${post._id}`, options)
+      const response = await fetch(`https://morbiksocial-api.onrender.com/api/posts/like/${post._id}`, options)
       const json = await response.json()
      
       if(json.status === "Liked") { 

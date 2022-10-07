@@ -29,7 +29,7 @@ const sendMessage = async ( json ) => {
           text : message
      })
 
-    const response = await fetch(`${process.env.SERVER}/api/message/`, options)
+    const response = await fetch(`https://morbiksocial-api.onrender.com/api/message/`, options)
 
      if(response.ok) { 
           const jsontwo = await response.json()
@@ -46,7 +46,7 @@ const processSendMessage = async () => {
           headers : { "Authorization": `Bearer ${user.token}` }
           }
      
-     let response = await fetch(`${process.env.SERVER}/api/conversation/between/${user._id}/${chatingWith}`, options)
+     let response = await fetch(`https://morbiksocial-api.onrender.com/api/conversation/between/${user._id}/${chatingWith}`, options)
      let json = await response.json()
 
      if(json !== null) { await sendMessage(json) } 
@@ -60,7 +60,7 @@ const processSendMessage = async () => {
                body : JSON.stringify({senderId : user._id , receiverId : chatingWith })
           }
 
-     response = await fetch(`${process.env.SERVER}/api/conversation`, options)
+     response = await fetch(`https://morbiksocial-api.onrender.com/api/conversation`, options)
 
          if(response.ok) 
           { 

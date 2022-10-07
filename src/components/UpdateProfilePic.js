@@ -28,7 +28,7 @@ const UpdateProfilePic = ( { set_currenttask } ) => {
 
       formData.append('avatar', file);
 
-      fetch(`${process.env.SERVER}/api/user/profile/updateProfile/${user._id}`,
+      fetch(`https://morbiksocial-api.onrender.com/api/user/profile/updateProfile/${user._id}`,
         {    
           method: 'PUT',   
           body: formData,

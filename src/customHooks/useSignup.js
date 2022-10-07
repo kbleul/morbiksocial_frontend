@@ -22,7 +22,7 @@ export const useSignup = () => {
         }
 
 
-        const response = await fetch(process.env.SERVER + "/api/auth/signup" , options )
+        const response = await fetch("https://morbiksocial-api.onrender.com/api/auth/signup" , options )
         const json = await response.json()
 
         if(!response.ok) {

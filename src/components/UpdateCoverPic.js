@@ -28,7 +28,7 @@ const postCoverPicture = async (e) => {
 
           formData.append('cover', file);
 
-      fetch(`${process.env.SERVER}/api/user/cover/updateCover/${user._id}`,
+      fetch(`https://morbiksocial-api.onrender.com/api/user/cover/updateCover/${user._id}`,
         {    
           method: 'PUT',   
           body: formData,
