@@ -29,9 +29,9 @@ export const useSignup = () => {
             method: 'post',
             url: "https://morbiksocial-api.onrender.com/api/auth/signup",
             data: JSON.stringify({
-                email,
-                username,
-                password,
+                "email" : email,
+                "username" : username,
+                "password" : password,
             })
         })
         
