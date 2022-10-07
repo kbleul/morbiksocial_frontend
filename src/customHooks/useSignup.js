@@ -18,27 +18,14 @@ export const useSignup = () => {
         seterror(null)
         setisloading(true)
 
-        const options = {
+        const options = JSON.stringify({
             method : "POST",
             headers : { "content-Type" : "application/json" },
             body : JSON.stringify({email , username , password})
-        }
+        })
 
 
-        const response = await axios({
-                method: 'post',
-                url: "https://morbiksocial-api.onrender.com/api/auth/singup",
-                body: JSON.stringify({
-                    "email" : email,
-                    "username" : username,
-                    "password" : password,
-                }),
-                data : {
-                    "email" : email,
-                    "username" : username,
-                    "password" : password,
-                },
-              })
+        const response = await fetch("https://morbiksocial-api.onrender.com/api/auth/singup" , options)
      
         
 // fetch("https://morbiksocial-api.onrender.com/api/auth/signup" , options )
