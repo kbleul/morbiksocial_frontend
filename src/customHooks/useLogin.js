@@ -31,7 +31,7 @@ export const useLogin = () => {
          }
         
     try {
-    const response = await axios.post("https://morbiksocial-api.onrender.com/api/auth/login",{
+    const response = await axios.post("https://morbiksocial-api.cyclic.app/api/auth/login",{
             "username_or_email" : username_or_email,
             "password" : password,
          })
