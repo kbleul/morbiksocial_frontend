@@ -36,13 +36,13 @@ export const useLogin = () => {
             "password" : password,
          })
 console.log("response",response)
-console.log("data",response.data)
-console.log("user error",response.data.user)
+// console.log("data",response.data)
+// console.log("user error",response.data.user)
 
         if(response.data.error) {
             setisloading(false)
-            seterror(json.error)
-            return null
+            seterror(response.data.error)
+            return 
         }
         else {
             set_isnew(false)
@@ -51,9 +51,9 @@ console.log("user error",response.data.user)
              localStorage.setItem("user" , JSON.stringify(response.data))
         
             // update auth context
-            dispatch({ type : AUTH_ACTIONS.LOGIN , payload : json })
+            dispatch({ type : AUTH_ACTIONS.LOGIN , payload : response.data })
               setisloading(false)
-         return response.data
+         return 
         }
     // const json = await response.json()
 
