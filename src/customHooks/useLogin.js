@@ -38,26 +38,29 @@ export const useLogin = () => {
 
     const json = await response.json()
 
-    console.log("json",json)
-            if(!response.ok) {
-                setisloading(false)
-                seterror(json.error)
-                return null
-            }
-    
-            else {
-                set_isnew(false)
-    
-                //save user to local storage
-                localStorage.setItem("user" , JSON.stringify(json))
-    
-                // update auth context
-                dispatch({ type : AUTH_ACTIONS.LOGIN , payload : json })
-                setisloading(false)
-    
-                return json
-            }
-    } catch(error) { console.log("error",error)}
+    console.log("Login json",json)
+        if(!response.ok) {
+            setisloading(false)
+            seterror(json.error)
+            return null
+        }
+
+        else {
+            set_isnew(false)
+
+            //save user to local storage
+            localStorage.setItem("user" , JSON.stringify(json))
+
+            // update auth context
+            dispatch({ type : AUTH_ACTIONS.LOGIN , payload : json })
+            setisloading(false)
+
+            return json
+        }
+    } catch(error) { 
+        seterror(error.response.data.response)
+        console.log("Login error",error)
+    }
        
   }
 

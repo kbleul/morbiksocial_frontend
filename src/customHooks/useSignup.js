@@ -25,31 +25,35 @@ export const useSignup = () => {
         })
 
 
-        const response = await fetch("https://morbiksocial-api.onrender.com/api/auth/singup" , options)
+        try {
+            const response = await fetch("https://morbiksocial-api.onrender.com/api/auth/singup" , options)
      
+            const json = await response.json()
+            console.log("Signin json",json)
+    
+            if(!response.ok) {
+                setisloading(false)
+                seterror(json.error)
+                return null
+            }
+    
+            else { 
+                //save user to local storage
+                localStorage.setItem("user" , JSON.stringify(json))
+    
+                //update new user just signed in state
+                set_isnew(true)
+                // update auth context
+                dispatch({ type : AUTH_ACTIONS.LOGIN , payload : json })
+              
+                setisloading(false)
+                return json
+            }
+        } catch(error) {
+            seterror(error.response.data.response)
+            console.log("Signup error",error)
+        }
         
-// fetch("https://morbiksocial-api.onrender.com/api/auth/signup" , options )
-        const json = await response.json()
-        console.log("json",json)
-
-        if(!response.ok) {
-            setisloading(false)
-            seterror(json.error)
-            return null
-        }
-
-        else { 
-            //save user to local storage
-            localStorage.setItem("user" , JSON.stringify(json))
-
-            //update new user just signed in state
-            set_isnew(true)
-            // update auth context
-            dispatch({ type : AUTH_ACTIONS.LOGIN , payload : json })
-          
-            setisloading(false)
-            return json
-        }
     }
 
     return { signup , isloading , error }
