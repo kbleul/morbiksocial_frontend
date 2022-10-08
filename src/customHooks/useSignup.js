@@ -50,8 +50,9 @@ export const useSignup = () => {
                 return json
             }
         } catch(error) {
-            seterror(error.response.data.response)
-            console.log("Signup error",error)
+          let temperr  = JSON.parse(error)
+            seterror(temperr.response.data.response)
+            console.log("Signup error",temperr.response.data.response)
         }
         
     }
