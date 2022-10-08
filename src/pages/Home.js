@@ -24,7 +24,7 @@ const getUser = useCallback( async (userid) => {
       headers : { "Authorization" : `Bearer ${user.token}` }
     }
 
-    const fetchuser = await fetch(process.env.SERVER + `api/user/${userid}` , options)
+    const fetchuser = await fetch(`https://morbiksocial-api.cyclic.app/api/user/${userid}` , options)
 
     const json = await fetchuser.json()
 
@@ -43,7 +43,7 @@ const fetchRelationships = useCallback( async (type) => {
           headers: { "Authorization" : `Bearer ${user.token}` },
     }
 
-        const url = id !== user._id ? `https://morbiksocial-api.onrender.com/api/${type}/${id}` : `https://morbiksocial-api.onrender.com/api/${type}`
+        const url = id !== user._id ? `https://morbiksocial-api.cyclic.app/api/${type}/${id}` : `https://morbiksocial-api.cyclic.app/api/${type}`
         const response = await fetch( url , options)
 
         const json = await response.json()
@@ -67,7 +67,7 @@ const fetchRelationships = useCallback( async (type) => {
       }
   
       const url = id !== user._id ?
-                  `https://morbiksocial-api.onrender.com/api/posts/current/${id}` : `https://morbiksocial-api.onrender.com/api/posts/current`
+                  `https://morbiksocial-api.cyclic.app/api/posts/current/${id}` : `https://morbiksocial-api.cyclic.app/api/posts/current`
       const getpost = await fetch(url, options)
   
       let json = await getpost.json()
@@ -107,7 +107,7 @@ const fetchRelationships = useCallback( async (type) => {
    <div className="max-h-[60vh] md:h-[80vh] overflow-y-scroll  md:overflow-y-hidden md:hover:overflow-y-scroll border-r-2 border-gray-100 mt-[5%]" >
       { relationlist.map(person => (
         <Link to={`/myhome/${person._id}`} className="flex items-center gap-2 px-20 py-2 hover:cursor-pointer hover:opacity-60" key={person._id}>
-          <img className='w-12 h-12 rounded-full' src={`/public/data/uploads/${person.profilePicture}`} alt={person.username} />
+          <img className='w-12 h-12 rounded-full' src={`https://morbiksocial-api.cyclic.app/public/data/uploads/${person.profilePicture}`} alt={person.username} />
           <h5 className="font-bold ml-2 font-serif">{ person.username }</h5>
         </Link>
       ))

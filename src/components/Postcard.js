@@ -23,7 +23,7 @@ const likeUnlike_post = async () => {
       headers : { "Authorization" : `Bearer ${user.token}` }
       }
 
-      const response = await fetch(`https://morbiksocial-api.onrender.com/api/posts/like/${post._id}`, options)
+      const response = await fetch(`https://morbiksocial-api.cyclic.app/api/posts/like/${post._id}`, options)
       const json = await response.json()
      
       if(json.status === "Liked") { 
@@ -45,8 +45,11 @@ const handleFollow = async () => {
 
     let response 
     
-    if(isfollowed) {  response = await fetch(`${process.env.SERVER}/api/user/unfollow/${post.userId}`, options) }
-    else {  response = await fetch(`${process.env.SERVER}/api/user/follow/${post.userId}`, options)  }
+    if(isfollowed) {  
+      response = await fetch(`https://morbiksocial-api.cyclic.app/api/user/unfollow/${post.userId}`, options) 
+    }
+    else {  
+      response = await fetch(`https://morbiksocial-api.cyclic.app/api/user/follow/${post.userId}`, options)  }
 
     const json = await response.json()
     
@@ -79,7 +82,7 @@ const handleFollow = async () => {
           <div className={issuggestion ? "w-[85%] flex justify-between items-center" : "flex justify-between items-center"}>
 
             <Link to={`/myhome/${post.userId}`} className="flex items-center">
-              <img src={`/public/data/uploads/${post.userProfilePicture}`} alt={post.username} className='w-10 h-10 rounded-full'/>
+              <img src={`https://morbiksocial-api.cyclic.app/public/data/uploads/${post.userProfilePicture}`} alt={post.username} className='w-10 h-10 rounded-full'/>
               <h5 className="font-bold ml-2 font-sans">{post.username}</h5>
             </Link>
 
@@ -93,7 +96,7 @@ const handleFollow = async () => {
       </section>
     }
 
-   { post.img !== ""  && <img src={"/public/data/uploads/" +post.img} alt={post.desc} className="w-full lg:w-4/5 lg:ml-[10%] h-[80%]"/>}
+   { post.img !== ""  && <img src={"https://morbiksocial-api.cyclic.app/public/data/uploads/" +post.img} alt={post.desc} className="w-full lg:w-4/5 lg:ml-[10%] h-[80%]"/>}
    {
       is_mypost && <p className="p-2 text-center">{post.desc}</p>
    }

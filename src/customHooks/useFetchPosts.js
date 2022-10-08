@@ -26,7 +26,7 @@ export const useFetchPosts = () => {
             headers : { "Authorization" : `Bearer ${user.token}` }
         }
 
-        let getpost = await fetch(`https://morbiksocial-api.onrender.com/api/posts/timeline/all`, options)
+        let getpost = await fetch(`https://morbiksocial-api.cyclic.app/posts/timeline/all`, options)
         let json = await getpost.json()
 
         if(!getpost.ok) {
@@ -39,7 +39,7 @@ export const useFetchPosts = () => {
 
 
         //get suggested posts
-        getpost = await fetch(`https://morbiksocial-api.onrender.com/api/posts/timeline/suggested`, options)
+        getpost = await fetch(`https://morbiksocial-api.cyclic.app/posts/timeline/suggested`, options)
         json = await getpost.json()
 
         if(!getpost.ok) { 

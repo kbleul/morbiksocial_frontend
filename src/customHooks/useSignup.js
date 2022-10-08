@@ -24,36 +24,29 @@ export const useSignup = () => {
             body : JSON.stringify({email , username , password})
         })
 
-
-        try {
-            const response = await fetch("https://morbiksocial-api.onrender.com/api/auth/singup" , options)
+            const response = await axios.post("https://morbiksocial-api.cyclic.app/api/auth/singup" , options)
      
-            const json = await response.json()
-            console.log("Signin json",json)
+            console.log("Signin json",response)
     
-            if(!response.ok) {
+            if(response.data.error) {
                 setisloading(false)
-                seterror(json.error)
-                return null
+                seterror(response.data.error)
+                return 
             }
     
             else { 
-                //save user to local storage
-                localStorage.setItem("user" , JSON.stringify(json))
-    
                 //update new user just signed in state
                 set_isnew(true)
+
+                //save user to local storage
+                localStorage.setItem("user" , JSON.stringify(response.data))
+    
                 // update auth context
-                dispatch({ type : AUTH_ACTIONS.LOGIN , payload : json })
+                dispatch({ type : AUTH_ACTIONS.LOGIN , payload : response.data })
               
                 setisloading(false)
-                return json
+                return
             }
-        } catch(error) {
-            console.log("Login error ",error)
-            console.log("Login message ",error.message)
-            console.log("Login error msg",error.response.data.error)
-        }
         
     }
 

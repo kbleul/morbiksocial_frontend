@@ -29,7 +29,7 @@ const addNotification = useCallback( async(senderId) => {
       headers : { "Authorization": `Bearer ${user.token}` }
     }
 
-    const response = await fetch(`https://morbiksocial-api.onrender.com/api/${senderId}` , options)
+    const response = await fetch(`https://morbiksocial-api.cyclic.app/api/${senderId}` , options)
 
     if(response.ok) {
       const {username} = await response.json()
