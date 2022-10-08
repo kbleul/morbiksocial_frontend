@@ -30,12 +30,12 @@ export const useLogin = () => {
             })
          }
         
-    try {
+    // try {
     const response = await axios.post("https://morbiksocial-api.cyclic.app/api/auth/login",{
             "username_or_email" : username_or_email,
             "password" : password,
          })
-
+console.log("response",response)
     const json = await response.json()
 
     console.log("Login json",json)
@@ -57,16 +57,16 @@ export const useLogin = () => {
 
             return json
         }
-    } catch(error) { 
-        console.log("Login error ",error)
-        console.log("Login message ",error.message)
-        console.log("Login error msg",error.response.data.error)
+    // } catch(error) { 
+    //     console.log("Login error ",error)
+    //     console.log("Login message ",error.message)
+    //     console.log("Login error msg",error.response.data.error)
 
 
-        // let temperr  = JSON.parse(error)
-        // seterror(temperr.response.data.response)
-        // console.log("Login error 2",temperr.response.data.response)
-    }
+    //     // let temperr  = JSON.parse(error)
+    //     // seterror(temperr.response.data.response)
+    //     // console.log("Login error 2",temperr.response.data.response)
+    // }
        
   }
 
