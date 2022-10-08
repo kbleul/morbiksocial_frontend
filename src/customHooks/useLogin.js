@@ -59,6 +59,10 @@ export const useLogin = () => {
         }
     } catch(error) { 
         console.log("Login error ",error)
+        console.log("Login message ",error.message)
+        console.log("Login error msg",error.response.data.error)
+
+
         // let temperr  = JSON.parse(error)
         // seterror(temperr.response.data.response)
         // console.log("Login error 2",temperr.response.data.response)
