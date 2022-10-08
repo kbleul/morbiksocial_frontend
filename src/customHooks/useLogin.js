@@ -49,7 +49,7 @@ export const useLogin = () => {
 //     hii:"hii"
 //   }))
         const json = await response.json()
-
+console.log("json",json)
         if(!response.ok) {
             setisloading(false)
             seterror(json.error)

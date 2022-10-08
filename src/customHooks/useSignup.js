@@ -30,6 +30,7 @@ export const useSignup = () => {
         
 // fetch("https://morbiksocial-api.onrender.com/api/auth/signup" , options )
         const json = await response.json()
+        console.log("json",json)
 
         if(!response.ok) {
             setisloading(false)
