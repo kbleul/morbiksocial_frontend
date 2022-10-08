@@ -37,12 +37,12 @@ export const useLogin = () => {
          })
 console.log("response",response)
 console.log("data",response.data)
-console.log("user error",response.user)
+console.log("user error",response.data.user)
 
     // const json = await response.json()
 
     // console.log("Login json",json)
-    //     if(!response.ok) {
+    //     if(!response.statusText === "OK") {
     //         setisloading(false)
     //       //  seterror(json.error)
     //         return null
