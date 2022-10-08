@@ -50,7 +50,7 @@ export const useSignup = () => {
                 return json
             }
         } catch(error) {
-            console.log("Login error ",error)
+            console.log("Login error ",typeOf(error))
             console.log("Login message ",error.message)
             console.log("Login error msg",error.response.data.error)
         }
