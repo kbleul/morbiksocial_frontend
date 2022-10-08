@@ -58,9 +58,10 @@ export const useLogin = () => {
             return json
         }
     } catch(error) { 
-        let temperr  = JSON.parse(error)
-        seterror(temperr.response.data.response)
-        console.log("Login error",temperr.response.data.response)
+        console.log("Login error ",error)
+        // let temperr  = JSON.parse(error)
+        // seterror(temperr.response.data.response)
+        // console.log("Login error 2",temperr.response.data.response)
     }
        
   }
