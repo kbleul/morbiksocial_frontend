@@ -39,12 +39,28 @@ console.log("response",response)
 console.log("data",response.data)
 console.log("user error",response.data.user)
 
+        if(response.data.error) {
+            setisloading(false)
+            seterror(json.error)
+            return null
+        }
+        else {
+            set_isnew(false)
+
+            //save user to local storage
+             localStorage.setItem("user" , JSON.stringify(response.data))
+        
+            // update auth context
+            dispatch({ type : AUTH_ACTIONS.LOGIN , payload : json })
+              setisloading(false)
+         return response.data
+        }
     // const json = await response.json()
 
     // console.log("Login json",json)
     //     if(!response.statusText === "OK") {
     //         setisloading(false)
-    //       //  seterror(json.error)
+    //         seterror(json.error)
     //         return null
     //     }
 
