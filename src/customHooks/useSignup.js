@@ -17,11 +17,11 @@ export const useSignup = () => {
         seterror(null)
         setisloading(true)
 
-            const response = await axios.post("https://morbiksocial-api.cyclic.app/api/auth/singup" , {
-                "email" : email , 
-                "username" : username ,
-                "password" :  password
-            })
+        const response = await axios.post("https://morbiksocial-api.cyclic.app/api/signup" , {
+            "email" : email, 
+            "username" : username,
+            "password" :  password,
+        })
      
             console.log("Signin json",response)
     
@@ -30,7 +30,6 @@ export const useSignup = () => {
                 seterror(response.data.error)
                 return 
             }
-    
             else { 
                 //update new user just signed in state
                 set_isnew(true)
