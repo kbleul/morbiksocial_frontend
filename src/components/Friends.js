@@ -22,7 +22,7 @@ const fetchRelationships = useCallback( async () => {
             headers: { "Authorization" : `Bearer ${user.token}` },
     }
 
-    const response = await fetch( `https://morbiksocial-api.onrender.com/api/following` , options)
+    const response = await fetch( `https://morbiksocial-api.cyclic.app/api/following` , options)
 
     const json = await response.json()
 

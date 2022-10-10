@@ -14,7 +14,7 @@ const getOnlineUsers = useCallback( async () => {
         headers : { "Authorization": `Bearer ${user.token}` }
         }
 
-    const response = await fetch( `https://morbiksocial-api.onrender.com/api/${onlineuser_id}`, options)
+    const response = await fetch( `https://morbiksocial-api.cyclic.app/api/${onlineuser_id}`, options)
     const { _id , username, profilePicture } = await response.json()
         
         set_currentuser({ _id , username, profilePicture })

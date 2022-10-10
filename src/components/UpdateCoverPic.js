@@ -61,7 +61,7 @@ const postCoverPicture = async (e) => {
             onClick={() => { set_file(null); set_src("")}}>x</p>
             </div> : 
             <div className="w-full relative flex justify-center" >
-            <img className="w-full h-[50vh] mt-12" src={`/public/data/uploads/cover.jpg`} alt="default profile"/>
+            <img className="w-full h-[50vh] mt-12" src={`https://morbiksocial-api.cyclic.app/public/data/uploads/cover.jpg`} alt="default profile"/>
             </div>
         }
         </div>

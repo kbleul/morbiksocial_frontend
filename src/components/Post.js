@@ -41,7 +41,7 @@ const handleSubmit = async (e) => {
         }
       }
 
-      let sendpost = await fetch(`https://morbiksocial-api.onrender.com/api/share/image`, options)
+      let sendpost = await fetch(`https://morbiksocial-api.cyclic.app/public/data/uploads/image`, options)
       let json = await sendpost.json()
 
       options = {
@@ -53,7 +53,7 @@ const handleSubmit = async (e) => {
         body: JSON.stringify({ desc: disc })
       }
 
-      sendpost = await fetch(`https://morbiksocial-api.onrender.com/api/share/${json._id}`, options)
+      sendpost = await fetch(`https://morbiksocial-api.cyclic.app/public/data/uploads/${json._id}`, options)
 
       let json_two = await sendpost.json()
 
@@ -74,7 +74,7 @@ const handleSubmit = async (e) => {
         body: JSON.stringify({ desc: disc })
       }
 
-      const sendpost = await fetch(`https://morbiksocial-api.onrender.com/api/share/image`, options)
+      const sendpost = await fetch(`https://morbiksocial-api.cyclic.app/public/data/uploads/image`, options)
       let json_two = await sendpost.json()
 
       set_src(null)
@@ -89,7 +89,7 @@ const handleSubmit = async (e) => {
 
   return (
     <div className="w-[90%] md:w-[60%] ml-[5%] md:ml-0 mt-40 md:mt-4 flex">
-      <img src={`/public/data/uploads/${user.profilePicture}`} alt="profile" className='w-16 h-16 rounded-full self-center' />
+      <img src={`https://morbiksocial-api.cyclic.app/public/data/uploads/${user.profilePicture}`} alt="profile" className='w-16 h-16 rounded-full self-center' />
 
       <form onSubmit={e => handleSubmit(e)} encType="multipart/form-data" className="ml-4 w-4/5">
         <textarea value={disc} onChange={e => set_disc(e.target.value)} placeholder="What's on your mind ?" className="text-xl py-4 px-2 border-b-2 focus:outline-0 outline-0 w-full" />

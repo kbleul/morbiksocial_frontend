@@ -18,12 +18,12 @@ const getChat = useCallback( async () => {
           headers : { "Authorization": `Bearer ${user.token}` }
           }
 
-     let response = await fetch(`https://morbiksocial-api.onrender.com/api/conversation/between/${user._id}/${chatingWith}`, options)
+     let response = await fetch(`https://morbiksocial-api.cyclic.app/api/conversation/between/${user._id}/${chatingWith}`, options)
 
      let json = await response.json()
 
      if(json !== null) {
-      response = await fetch(`https://morbiksocial-api.onrender.com/api/message/${json._id}` , options)
+      response = await fetch(`https://morbiksocial-api.cyclic.app/api/message/${json._id}` , options)
 
       if(response.ok) {
           json = await response.json()

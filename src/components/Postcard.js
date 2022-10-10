@@ -15,7 +15,7 @@ const Postcard = ({ post , issuggestion , is_mypost }) => {
   const [ isfollowed , set_isfollowed ] = useState(false)
 
 
- let sec_style =  post.img === "" ? "max-h-[55vh] w-[96%] md:w-[80%] ml-[2%] md:ml-[10%] lg:w-[96%] lg:ml-[2%] mt-2  mb-[8%]" : "h-[50vh] w-[96%] md:w-[80%] ml-[2%] md:ml-[10%] mb-[8%] lg:w-[96%] lg:ml-[2%] mt-2 " 
+ let sec_style =  post.img === "" ? "max-h-[55vh] w-[96%] md:w-[80%] ml-[2%] md:ml-[10%] lg:w-[96%] lg:ml-[2%] mt-2  mb-16" : "h-[50vh] w-[96%] md:w-[80%] ml-[2%] md:ml-[10%] mb-16 lg:w-[96%] lg:ml-[2%] mt-2 " 
 
 const likeUnlike_post = async () => {
     const options = {
