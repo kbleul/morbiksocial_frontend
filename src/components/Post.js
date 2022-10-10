@@ -76,12 +76,12 @@ const handleSubmit = async (e) => {
 
       const sendpost = await fetch(`https://morbiksocial-api.cyclic.app/api/share/image`, options)
      // let json_two = await sendpost.json()
+console.log("sendpost",sendpost)
+      // set_src(null)
+      // set_file(null)
+      // set_disc("")
 
-      set_src(null)
-      set_file(null)
-      set_disc("")
-
-      post_dispatch({ type: POST_ACTIONS.ADDPOST, payload: sendpost.data })
+      // post_dispatch({ type: POST_ACTIONS.ADDPOST, payload: sendpost.data })
     }
 
 }
