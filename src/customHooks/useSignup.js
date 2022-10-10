@@ -18,13 +18,11 @@ export const useSignup = () => {
         seterror(null)
         setisloading(true)
 
-        const options = JSON.stringify({
-            method : "POST",
-            headers : { "content-Type" : "application/json" },
-            body : JSON.stringify({email , username , password})
-        })
-
-            const response = await axios.post("https://morbiksocial-api.cyclic.app/api/auth/singup" , options)
+            const response = await axios.post("https://morbiksocial-api.cyclic.app/api/auth/singup" , {
+                "email" : email , 
+                "username" : username ,
+                "password" :  password
+            })
      
             console.log("Signin json",response)
     
