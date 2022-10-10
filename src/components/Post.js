@@ -42,7 +42,7 @@ const handleSubmit = async (e) => {
       }
 
       let sendpost = await fetch(`https://morbiksocial-api.cyclic.app/api/share/image`, options)
-      let json = sendpost.data
+      let json = sendpost.json()
 
       options = {
         method: "PUT",
@@ -55,13 +55,14 @@ const handleSubmit = async (e) => {
 
       sendpost = await fetch(`https://morbiksocial-api.cyclic.app/api/share/${json._id}`, options)
 
-      //let json_two = await sendpost.json()
-
+      let json_two = await sendpost.json()
+      console.log("sendpost",sendpost)
+      console.log("json_two",json_two)
       set_src(null)
       set_file(null)
       set_disc("")
 
-      post_dispatch({ type: POST_ACTIONS.ADDPOST, payload: { ...json.data, desc: sendpost.data.desc } })
+      post_dispatch({ type: POST_ACTIONS.ADDPOST, payload: { ...json.data, desc: json_two.desc } })
     }
 
     else if (disc !== "") {
@@ -79,11 +80,11 @@ const handleSubmit = async (e) => {
 console.log("sendpost",sendpost)
 console.log("json_two",json_two)
 
-      // set_src(null)
-      // set_file(null)
-      // set_disc("")
+      set_src(null)
+      set_file(null)
+      set_disc("")
 
-      // post_dispatch({ type: POST_ACTIONS.ADDPOST, payload: sendpost.data })
+      post_dispatch({ type: POST_ACTIONS.ADDPOST, payload: json_two })
     }
 
 }
