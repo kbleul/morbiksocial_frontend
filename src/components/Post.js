@@ -42,7 +42,10 @@ const handleSubmit = async (e) => {
       }
 
       let sendpost = await fetch(`https://morbiksocial-api.cyclic.app/api/share/image`, options)
+      console.log("sendpost",sendpost)
+
       let json = sendpost.json()
+      console.log("json_two",json_two)
 
       options = {
         method: "PUT",
