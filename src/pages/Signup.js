@@ -2,6 +2,7 @@
 import { useState , useRef } from 'react'
 import loading from "../assets/loading/loading2.gif"
 import { useSignup } from "../customHooks/useSignup"
+import {  Link } from "react-router-dom"
 
 const Signup = () => {
 
@@ -47,7 +48,7 @@ const matchPasswords = type => {
 
   return (
     <section className="bg-neutral-100 h-[93vh]">
-       <h2 className="ml-8 md:ml-16 mt-12 pl-4 font-bold text-2xl md:text-3xl border-l-4 border-amber-300">Morbik Social</h2>
+       <Link to="/login"className="ml-8 md:ml-16 mt-12 pl-4 font-bold text-2xl md:text-3xl border-l-4 border-amber-300">Morbik Social</Link>
 
     <div className="flex flex-col w-[90%] md:w-[70%] lg:w-1/2 ml-[5%] md:ml-[15%] lg:ml-[25%] mt-[10vh] md:mt-[4%] shadow-lg bg-white">
 
