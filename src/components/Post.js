@@ -75,8 +75,10 @@ const handleSubmit = async (e) => {
       }
 
       const sendpost = await fetch(`https://morbiksocial-api.cyclic.app/api/share/image`, options)
-     // let json_two = await sendpost.json()
+      let json_two = await sendpost.json()
 console.log("sendpost",sendpost)
+console.log("json_two",json_two)
+
       // set_src(null)
       // set_file(null)
       // set_disc("")
