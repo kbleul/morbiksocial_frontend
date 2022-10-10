@@ -6,7 +6,6 @@ import { useNewUserContext } from "./useMyContext"
 
 import axios from "axios"
 
-
 export const useSignup = () => {
     const [error , seterror] = useState(null)
     const [isloading , setisloading] = useState(null)
@@ -44,8 +43,7 @@ export const useSignup = () => {
               
                 setisloading(false)
                 return
-            }
-        
+            }      
     }
 
     return { signup , isloading , error }
