@@ -40,7 +40,7 @@ const addNotification = useCallback( async(senderId) => {
 
 useEffect(() => { 
   //socket.current = io("ws://localhost:8900")  
-  socket.current = io( process.env.Socketurl , {
+  socket.current = io( "wss://morbik-social-socket.glitch.me/" , {
     headers : {
       "user-agent" : "Mozilla"
     }
