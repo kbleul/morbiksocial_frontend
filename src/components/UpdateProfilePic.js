@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+import loading_gif from "../assets/loading/loading2.gif"
+
 import { AUTH_ACTIONS } from "../contex/authContext"
 import { useAuthContext } from "../customHooks/useMyContext"
 
@@ -8,6 +10,8 @@ const UpdateProfilePic = ( { set_currenttask } ) => {
       const  { user , dispatch } = useAuthContext()
       const [ file , set_file ] = useState(null)
       const [ src , set_src ] = useState(null)
+      const [isloading , set_isloading] = useState(false)
+
 
 const getImgData = (uploaded) => {
       if (uploaded) { 
@@ -22,6 +26,7 @@ const getImgData = (uploaded) => {
 
 const postProfilePicture = async (e) => {
     e.preventDefault()
+    set_isloading(true)
     
     if(file){
       const formData = new FormData();
@@ -41,6 +46,7 @@ const postProfilePicture = async (e) => {
           set_currenttask("coverpic")
           set_src(null)
           set_file(null)
+          set_isloading(false)
         })
           .catch((error) => {  console.error('Error:', error);  });
   }
@@ -69,8 +75,10 @@ const postProfilePicture = async (e) => {
           }
           </div>
 
-          <button className="hover:text-red-500 cursor-pointer my-4">Submit</button>
+          <button className={isloading ? "hidden" : "hover:text-red-500 cursor-pointer my-4"}>Submit</button>
+          <img className={isloading ? "w-8 h-8" : "hidden" } src={loading_gif} alt="loading" />
           <hr />
+
           <button className="hover:text-red-500 cursor-pointer my-4" onClick={e =>{ e.preventDefault();  set_currenttask("coverpic")}}>skip</button>
       </form>
     )

@@ -1,5 +1,5 @@
 
-import { useEffect , useState  } from "react"
+import { useEffect } from "react"
 import { useMediaQuery } from 'react-responsive';
 
 import loading from "../assets/loading/loading2.gif"
@@ -12,7 +12,7 @@ import { useNewUserContext } from "../customHooks/useMyContext"
 import { usePostContext } from "../customHooks/useMyContext"
 import { useFetchPosts } from "../customHooks/useFetchPosts"
 
-import { FeedMobileVersion } from "./mobileVersion/FeedMobileVersion"
+import FeedMobileVersion from "./mobileVersion/FeedMobileVersion"
 
 
 const Feed = () => {

@@ -1,4 +1,11 @@
-const ChatMobileVersion = ({ chatingwith , set_chatingwith , socket , arrivalmessage , onlineusers , set_onlineusers , friends, setfriends , chatingWith_name , set_chatingWith_name}) => {
+
+import { useState } from "react"
+
+import  OnlineFriends  from "../../components/OnlineFriends"
+import  Friends  from "../../components/Friends"
+import  MessageBox  from "../../components/MessageBox"
+
+const ChatMobileVersion = ({ chatingwith , set_chatingwith , socket , arrivalmessage , onlineusers , set_onlineusers , friends, setfriends , chatingWith_name , set_chatingWith_name }) => {
 
     const [ currentpage , set_currentpage ] = useState("chatbox")
   

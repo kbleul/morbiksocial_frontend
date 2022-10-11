@@ -1,4 +1,7 @@
 import { useState } from "react"
+
+import loading_gif from "../assets/loading/loading2.gif"
+
 import { AUTH_ACTIONS } from "../contex/authContext"
 import { useAuthContext } from "../customHooks/useMyContext"
 
@@ -8,6 +11,8 @@ const UpdateCoverPic = ( { set_currenttask } ) => {
 
     const [ file , set_file ] = useState(null)
     const [ src , set_src ] = useState(null)
+    const [isloading , set_isloading] = useState(false)
+
 
 const getImgData = (uploaded) => {
     if (uploaded) { 
@@ -22,6 +27,7 @@ const getImgData = (uploaded) => {
 
 const postCoverPicture = async (e) => {
     e.preventDefault()
+    set_isloading(true)
     
     if(file){
       const formData = new FormData();
@@ -41,6 +47,7 @@ const postCoverPicture = async (e) => {
             set_currenttask("others")
             set_src(null)
             set_file(null)
+            set_isloading(false)
         })
           .catch((error) => {  console.error('Error:', error);  });
   }
@@ -55,18 +62,24 @@ const postCoverPicture = async (e) => {
             }  }/>
 
         <div className="w-full md:w-1/2 md:ml-[25%] flex justify-end items-center">
+
         { src ? <div className="w-full relative flex justify-center" >
+
             <img className="w-full h-[50vh] mt-12 " src={src} alt="cover"/>
             <p className="absolute top-0 left-[47%] text-4xl text-red-600 rounded-full hover:text-red-400 " 
             onClick={() => { set_file(null); set_src("")}}>x</p>
             </div> : 
+
             <div className="w-full relative flex justify-center" >
             <img className="w-full h-[50vh] mt-12" src={`https://morbiksocial-api.cyclic.app/public/data/uploads/cover.jpg`} alt="default profile"/>
             </div>
         }
         </div>
 
-        <button className="hover:text-red-500 cursor-pointer my-4">Submit</button><hr />
+        <button className={isloading ? "hidden" : "hover:text-red-500 cursor-pointer my-4"}>Submit</button>
+        <img className={isloading ? "w-8 h-8" : "hidden" } src={loading_gif} alt="loading" />
+        <hr />
+
         <button className="hover:text-red-500 cursor-pointer my-4" onClick={e =>{ e.preventDefault();  set_currenttask("others")}}>skip</button>
 </form>)
 }

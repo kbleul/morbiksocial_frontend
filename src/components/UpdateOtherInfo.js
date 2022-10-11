@@ -1,4 +1,7 @@
 import { useState } from "react"
+
+import loading_gif from "../assets/loading/loading2.gif"
+
 import { AUTH_ACTIONS } from "../contex/authContext"
 import { useAuthContext } from "../customHooks/useMyContext"
 import { useNewUserContext } from "../customHooks/useMyContext"
@@ -13,9 +16,12 @@ const UpdateOtherInfo = () => {
     const [ relationship , set_relationship ] = useState("It's a Secret")
     const [ city , set_city ] = useState("")
     const [ country , set_country ] = useState("Select a Country")
+    const [isloading , set_isloading] = useState(false)
+
 
 const postOtherInfo = async (e) => {
       e.preventDefault()
+      set_isloading(true)
 
       const options = {
         method : "PUT",
@@ -36,6 +42,7 @@ const postOtherInfo = async (e) => {
                 set_country("")
                 set_city("")
                 set_isnew(false)
+                set_isloading(false)
         })
         .catch((error) => {  console.log('Error:', error);  });
 
@@ -301,7 +308,8 @@ const postOtherInfo = async (e) => {
     <label className="block w-full text-center mb-[2%] mt-[6%]">City</label>
     <input className="w-[70%] md:w-[50%] ml-[15%] md:ml-[25%] border-b border-gray-500 focus:border-none mb-2 text-center" type="text" value={city} onChange={e => set_city(e.target.value) } />
 
-    <button className="hover:text-red-500 cursor-pointer mt-8 w-[40%] ml-[30%]">Submit</button>
+    <button className={isloading ? "hidden" : "hover:text-red-500 cursor-pointer mt-8 w-[40%] ml-[30%]"}>Submit</button>
+    <img className={isloading ? "w-8 h-8" : "hidden" } src={loading_gif} alt="loading" />
     <hr />
    </form>)
 }

@@ -1,3 +1,11 @@
+import { useState } from "react"
+
+import loading from "../../assets/loading/loading2.gif"
+
+import Post from "../../components/Post"
+import Postcard from "../../components/Postcard"
+
+
 const FeedMobileVersion = ({feedposts , feedposts_suggested , post_isloading , sugg_isloading , post_error , sugg_error}) => {
 
     const [isfeed, set_isfeed] = useState(true)
