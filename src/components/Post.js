@@ -45,27 +45,29 @@ const handleSubmit = async (e) => {
       console.log("sendpost",sendpost)
 
       let json = sendpost.json()
-      console.log("json_two",json_two)
+      console.log("json_two",json)
+      console.log("json_two",sendpost.data)
 
-      options = {
-        method: "PUT",
-        headers: {
-          "Authorization": `Bearer ${user.token}`,
-          "content-Type": "application/json"
-        },
-        body: JSON.stringify({ desc: disc })
-      }
 
-      sendpost = await fetch(`https://morbiksocial-api.cyclic.app/api/share/${json._id}`, options)
+      // options = {
+      //   method: "PUT",
+      //   headers: {
+      //     "Authorization": `Bearer ${user.token}`,
+      //     "content-Type": "application/json"
+      //   },
+      //   body: JSON.stringify({ desc: disc })
+      // }
 
-      let json_two = await sendpost.json()
-      console.log("sendpost",sendpost)
-      console.log("json_two",json_two)
-      set_src(null)
-      set_file(null)
-      set_disc("")
+      // sendpost = await fetch(`https://morbiksocial-api.cyclic.app/api/share/${json._id}`, options)
 
-      post_dispatch({ type: POST_ACTIONS.ADDPOST, payload: { ...json.data, desc: json_two.desc } })
+      // let json_two = await sendpost.json()
+      // console.log("sendpost",sendpost)
+      // console.log("json_two",json_two)
+      // set_src(null)
+      // set_file(null)
+      // set_disc("")
+
+      // post_dispatch({ type: POST_ACTIONS.ADDPOST, payload: { ...json.data, desc: json_two.desc } })
     }
 
     else if (disc !== "") {
