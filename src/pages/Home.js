@@ -16,7 +16,7 @@ const Home = () => {
 
   const [ currentPerson , set_currentPerson ] = useState(null)
   const [ relationlist , set_relationlist ] = useState([])
-  const [relation_type , set_relation_type] = useState("following")
+  const [ relation_type , set_relation_type ] = useState("following")
 
 const getUser = useCallback( async (userid) => {
     const options = {
@@ -112,12 +112,19 @@ const fetchRelationships = useCallback( async (type) => {
         </Link>
       ))
       }
+
+      { relationlist.length === 0  && 
+          <p className="text-center text-red-400 text-sm my-4 ">{ relation_type === "following" ? "You are not following anyone" : "You don't have any followers" }</p>
+      }
+        
+      { <p className="text-center text-blue-400 text-xl my-16 col-span-2">No friends yet</p> }
     </div>
 
-    <p className="w-full text-3xl text-center md:hidden bg-[#f4f4f4] mt-[5vh] font-content-spliter">Posts</p>
+    <p className="w-full text-3xl text-center md:hidden bg-[#f4f4f4] mt-[25vh] font-content-spliter">Posts</p>
     
     <div className="max-h-[60vh] md:h-[80vh] overflow-y-scroll  md:overflow-y-hidden md:hover:overflow-y-scroll md:col-span-2 grid grid-cols-2 gap-2 md:mr-8 border-t md:border-none">
-     { userposts.length === 0 && <p className="text-center text-blue-400 text-xl mt-32 col-span-2">No posts yet</p>}
+     { userposts.length === 0 && 
+        <p className="text-center text-blue-400 text-xl my-16 col-span-2">No posts yet</p> }
 
       { userposts.map( post => (
         <Postcard key={post._id} post={post} is_mypost={true}/>
