@@ -22,8 +22,6 @@ export const useSignup = () => {
             "username" : username,
             "password" :  password,
         })
-     
-            console.log("Signin json",response)
     
             if(response.data.error) {
                 setisloading(false)

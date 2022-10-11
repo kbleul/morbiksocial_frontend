@@ -44,8 +44,6 @@ const handleSubmit = async (e) => {
       let sendpost = await fetch(`https://morbiksocial-api.cyclic.app/api/share/image`, options)
 
       let json = await sendpost.json()
-      console.log("json_two",json)
-
 
       options = {
         method: "PUT",
@@ -59,8 +57,7 @@ const handleSubmit = async (e) => {
       sendpost = await fetch(`https://morbiksocial-api.cyclic.app/api/share/${json._id}`, options)
 
       let json_two = await sendpost.json()
-      console.log("sendpost",sendpost)
-      console.log("json_two",json_two)
+
       set_src(null)
       set_file(null)
       set_disc("")
@@ -80,8 +77,6 @@ const handleSubmit = async (e) => {
 
       const sendpost = await fetch(`https://morbiksocial-api.cyclic.app/api/share/image`, options)
       let json_two = await sendpost.json()
-console.log("sendpost",sendpost)
-console.log("json_two",json_two)
 
       set_src(null)
       set_file(null)

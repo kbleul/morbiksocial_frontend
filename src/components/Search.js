@@ -10,7 +10,6 @@ const Search = () => {
     const [search, setsearch] = useState("")
     const [suggestions, setsuggestions] = useState([])
 
-
 const getSearchSuggestions = async(word) => {
     const options = {
       method : "PUT",
@@ -30,9 +29,9 @@ const getSearchSuggestions = async(word) => {
 }
 
 
-  useEffect(() => {
+useEffect(() => {
     if(search === "" || search === " ") {  setsuggestions([]) ;  }
-  },[search , setsuggestions])
+},[search , setsuggestions])
 
 
   return (

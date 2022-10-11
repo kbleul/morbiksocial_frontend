@@ -43,7 +43,7 @@ useEffect(() => {
 },[onlineusers , setfriends])
 
 
-    return(<article className={!isMobileDevice && "mt-28 "}>
+ return(<article className={!isMobileDevice && "mt-28 "}>
 
    {!isMobileDevice && <h3 className="mt-4 mb-2 text-center text-xl font-content-spliter font-bold">{friends.length} Friends</h3>}
 
@@ -52,7 +52,7 @@ useEffect(() => {
         { friends.map(tempf => (
             <div key={tempf._id} className={isMobileDevice ? "w-full flex  items-center  pl-12 my-[7%] cursor-pointer" : "w-full flex  items-center md:pl-[17%] lg:mr-4 mt-[8%] cursor-pointer hover:bg-gray-100" }
                 onClick={() => handleChatwith(tempf._id , tempf.username)}>
-                <img className="w-12 h-12 rounded-full" src={`https://morbiksocial-api.cyclic.app/public/data/uploads/${tempf.profilePicture}`} alt={tempf.username} />
+                <img className="w-12 h-12 rounded-full" src={tempf.profilePicture} alt={tempf.username} />
                 <p className="w-full text-left text-base pl-4">{tempf.username}</p>
             </div>
         ))}

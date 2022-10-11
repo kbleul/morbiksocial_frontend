@@ -9,6 +9,8 @@ import  OnlineFriends  from "../components/OnlineFriends"
 import  Friends  from "../components/Friends"
 import  MessageBox  from "../components/MessageBox"
 
+import ChatMobileVersion from "./mobileVersion/ChatMobileVersion"
+
 const Chat = () => {
 
   const  { user } = useAuthContext()
@@ -39,12 +41,9 @@ const addNotification = useCallback( async(senderId) => {
 
 
 useEffect(() => { 
-  //socket.current = io("ws://localhost:8900")  
   socket.current = io( "wss://morbik-social-socket.glitch.me/" , {
-    headers : {
-      "user-agent" : "Mozilla"
-    }
-  })  
+    headers : {  "user-agent" : "Mozilla"  }
+})  
 
   socket.current.on("getMessage", data => {
     set_arrivalmessage({
@@ -94,34 +93,4 @@ useEffect(() => {
   )
 }
 
-
-const ChatMobileVersion = ({ chatingwith , set_chatingwith , socket , arrivalmessage , onlineusers , set_onlineusers , friends, setfriends , chatingWith_name , set_chatingWith_name}) => {
-
-  const [ currentpage , set_currentpage ] = useState("chatbox")
-
-  return (
-    <article className="mt-[9.1rem]">
-        <section className="font-content-spliter flex pb-2">
-          <button className={currentpage==="online" ? "w-1/2 text-center text-red-400 cursor-pointer" : "cursor-pointer w-1/2 text-center"} onClick={() => set_currentpage("online")} >
-            {onlineusers.length} Online</button>
-          <button className={currentpage==="friends" ? "w-1/2 text-center text-red-400 cursor-pointer": "cursor-pointer w-1/2 text-center"} onClick={() => set_currentpage("friends")}>
-            {friends.length} Friends</button>
-        </section>
-
-        <section className="w-full shadow-2xl">
-         { currentpage === "chatbox" && 
-         <MessageBox chatingwith={[chatingwith , set_chatingwith]} socket={socket} arrivalmessage={arrivalmessage} chatingWith_name={chatingWith_name} /> }
-
-         { currentpage === "friends" && 
-         <Friends chatingwith={[chatingwith , set_chatingwith]} relation={[friends, setfriends]} onlineUsers={[onlineusers , set_onlineusers]} set_currentpage={set_currentpage} set_chatingWith_name={set_chatingWith_name} /> }
-
-         { currentpage === "online" && 
-         <OnlineFriends chatingwith={[chatingwith , set_chatingwith]} onlineusers={onlineusers} relation={[friends, setfriends]} set_currentpage={set_currentpage} set_chatingWith_name={set_chatingWith_name} /> }
-        </section>
-    </article>
-  )
-} 
-
-
 export default Chat
-

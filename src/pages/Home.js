@@ -114,10 +114,9 @@ const fetchRelationships = useCallback( async (type) => {
       }
 
       { relationlist.length === 0  && 
-          <p className="text-center text-red-400 text-sm my-4 ">{ relation_type === "following" ? "You are not following anyone" : "You don't have any followers" }</p>
+          <p className="text-center text-red-400 text-sm my-16 ">{ relation_type === "following" ? "You are not following anyone" : "You don't have any followers" }</p>
       }
         
-      { <p className="text-center text-blue-400 text-xl my-16 col-span-2">No friends yet</p> }
     </div>
 
     <p className="w-full text-3xl text-center md:hidden bg-[#f4f4f4] mt-[25vh] font-content-spliter">Posts</p>

@@ -30,10 +30,10 @@ useEffect(() => {  getOnlineUsers()  }, [getOnlineUsers])
             set_chatingWith(currentuser._id)
             set_currentpage && set_currentpage("chatbox")
             set_chatingWith_name(currentuser.username)
-        }}>
-            <img className="max-w-[12rem] max-h-[10rem] w-3/5 h-40 lg:w-4/5 lg:h-48 rounded-full " src={`https://morbiksocial-api.cyclic.app/public/data/uploads/${currentuser.profilePicture}`} alt={currentuser.username} />
+         }}>
+            <img className="max-w-[12rem] max-h-[10rem] w-3/5 h-40 lg:w-4/5 lg:h-48 rounded-full " src={currentuser.profilePicture} alt={currentuser.username} />
             <p className="text-sm text-center w-full">{currentuser.username}</p>
-            <p className="bg-green-400 w-3 h-3 rounded-full absolute top-[80%] left-[70%]"></p>
+            <p className="bg-green-400 w-2 h-2 md:w-3 md:h-3 rounded-full absolute top-[80%] left-[70%]"></p>
         </div>
     }
     </section>)

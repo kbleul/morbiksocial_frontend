@@ -5,11 +5,11 @@ import { useAuthContext } from "../customHooks/useMyContext"
 
 const UpdateProfilePic = ( { set_currenttask } ) => {
 
-  const  { user , dispatch } = useAuthContext()
+      const  { user , dispatch } = useAuthContext()
       const [ file , set_file ] = useState(null)
       const [ src , set_src ] = useState(null)
 
-   const getImgData = (uploaded) => {
+const getImgData = (uploaded) => {
       if (uploaded) { 
         const fileReader = new FileReader();
 
@@ -18,9 +18,9 @@ const UpdateProfilePic = ( { set_currenttask } ) => {
           set_src(this.result)
         });    
       }
-    }
+}
 
-  const postProfilePicture = async (e) => {
+const postProfilePicture = async (e) => {
     e.preventDefault()
     
     if(file){
@@ -46,7 +46,7 @@ const UpdateProfilePic = ( { set_currenttask } ) => {
   }
 }
 
-    return(
+  return(
         <form enctype="multipart/form-data" onSubmit={e => postProfilePicture(e)} className="flex flex-col w-full md:w-1/2 md:ml-[25%]">
           <label className="text-center">Set your profile picture</label>
           <input className="mt-[10%] w-4/5 ml-[10%]" type="file" name="profile" accept=".png, .jpg, .jpeg" 

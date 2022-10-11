@@ -25,7 +25,6 @@ export const useLogin = () => {
             "username_or_email" : username_or_email,
             "password" : password,
          })
-// console.log("response",response)
 
         if(response.data.error) {
             setisloading(false)

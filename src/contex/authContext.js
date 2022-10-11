@@ -28,19 +28,19 @@ const AuthContextProvider = ( { children } ) => {
 
     const [ state , dispatch ] = useReducer( authReducer , { user : null} )
 
-const updateUser = async (id , token) => {
-    
-    const options = {
-        method : "GET",
-        headers : { "Authorization" : `Bearer ${token}` }
+    const updateUser = async (id , token) => {
+        
+        const options = {
+            method : "GET",
+            headers : { "Authorization" : `Bearer ${token}` }
+        }
+
+        const response = await fetch(`https://morbiksocial-api.onrender.com/api/user/${id}` , options )
+        const json = await response.json()
+
+        const newuser = { ...json , token }
+        dispatch({type : AUTH_ACTIONS.LOGIN ,  payload : newuser})
     }
-
-    const response = await fetch(`https://morbiksocial-api.onrender.com/api/user/${id}` , options )
-    const json = await response.json()
-
-    const newuser = { ...json , token }
-    dispatch({type : AUTH_ACTIONS.LOGIN ,  payload : newuser})
-}
 
     useEffect(() => {  
         const user = JSON.parse(localStorage.getItem("user"))

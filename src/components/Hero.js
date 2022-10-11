@@ -1,4 +1,3 @@
-
 const Hero = ({user}) => {
 
   return (

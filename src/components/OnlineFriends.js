@@ -20,7 +20,7 @@ return(
             ))}
         </section>
      </article>
-)
+    )
 }
 
 export default OnlineFriends
