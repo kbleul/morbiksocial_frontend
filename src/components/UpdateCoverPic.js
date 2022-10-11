@@ -40,7 +40,7 @@ const postCoverPicture = async (e) => {
           body: formData,
           headers : { "Authorization" : `Bearer ${user.token}`}
         }
-  
+
       ).then((response) => response.json())
         .then((result) => {  
           dispatch( { type : AUTH_ACTIONS.UPDATE_INFO , payload : {...user, coverPicture : result.coverPicture}})
@@ -71,7 +71,7 @@ const postCoverPicture = async (e) => {
             </div> : 
 
             <div className="w-full relative flex justify-center" >
-            <img className="w-full h-[50vh] mt-12" src={`https://morbiksocial-api.cyclic.app/public/data/uploads/cover.jpg`} alt="default profile"/>
+            <img className="w-full h-[50vh] mt-12" src={`https://res.cloudinary.com/dgavaiblp/image/upload/v1665511293/morbikSocial/placeholder/cover_q15ffc.jpg`} alt="default profile"/>
             </div>
         }
         </div>

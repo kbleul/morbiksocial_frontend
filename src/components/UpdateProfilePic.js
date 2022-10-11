@@ -39,7 +39,7 @@ const postProfilePicture = async (e) => {
           body: formData,
           headers : { "Authorization" : `Bearer ${user.token}`}
         }
-  
+
       ).then((response) => response.json())
         .then((result) => { 
           dispatch( { type : AUTH_ACTIONS.UPDATE_INFO , payload : {...user, profilePicture : result.profilePicture}})
@@ -53,7 +53,7 @@ const postProfilePicture = async (e) => {
 }
 
   return(
-        <form enctype="multipart/form-data" onSubmit={e => postProfilePicture(e)} className="flex flex-col w-full md:w-1/2 md:ml-[25%]">
+        <form  onSubmit={e => postProfilePicture(e)} className="flex flex-col w-full md:w-1/2 md:ml-[25%]">
           <label className="text-center">Set your profile picture</label>
           <input className="mt-[10%] w-4/5 ml-[10%]" type="file" name="profile" accept=".png, .jpg, .jpeg" 
             onChange={e => {
@@ -70,7 +70,7 @@ const postProfilePicture = async (e) => {
               </div> : 
               
               <div className="w-full relative flex justify-center" >
-                <img className="w-64 h-64 rounded-full mt-12" src={`https://morbiksocial-api.cyclic.app/public/data/uploads/black.png`} alt="default profile"/>
+                <img className="w-64 h-64 rounded-full mt-12" src={`https://res.cloudinary.com/dgavaiblp/image/upload/v1665511290/morbikSocial/placeholder/black_dzkx5m.png`} alt="default profile"/>
               </div>
           }
           </div>
