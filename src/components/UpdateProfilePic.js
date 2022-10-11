@@ -26,9 +26,9 @@ const UpdateProfilePic = ( { set_currenttask } ) => {
     if(file){
       const formData = new FormData();
 
-      formData.append('avatar', file);
+      formData.append('profile', file);
 
-      fetch(`https://morbiksocial-api.onrender.com/api/user/profile/updateProfile/${user._id}`,
+      fetch(`https://morbiksocial-api.cyclic.app/api/user/profile/updateProfile/${user._id}`,
         {    
           method: 'PUT',   
           body: formData,
@@ -49,7 +49,7 @@ const UpdateProfilePic = ( { set_currenttask } ) => {
     return(
         <form enctype="multipart/form-data" onSubmit={e => postProfilePicture(e)} className="flex flex-col w-full md:w-1/2 md:ml-[25%]">
           <label className="text-center">Set your profile picture</label>
-          <input className="mt-[10%] w-4/5 ml-[10%]" type="file" name="avatar" accept=".png, .jpg, .jpeg" 
+          <input className="mt-[10%] w-4/5 ml-[10%]" type="file" name="profile" accept=".png, .jpg, .jpeg" 
             onChange={e => {
               set_file(e.target.files[0])
               getImgData(e.target.files[0]);

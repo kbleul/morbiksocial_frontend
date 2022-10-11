@@ -26,7 +26,7 @@ const postOtherInfo = async (e) => {
         body : JSON.stringify( { disc : aboutme , city , country , relationship} )
       }
 
-      await fetch(`https://morbiksocial-api.onrender.com/api/user/${user._id}` , options )
+      await fetch(`https://morbiksocial-api.cyclic.app/api/user/${user._id}` , options )
       .then(response => response.json())
         .then(result => {
           dispatch( { type : AUTH_ACTIONS.UPDATE_INFO , payload : {...user, email : result.email , username : result.username , disc : result.disc , city : result.city , country : result.country , relationship : result.relationship , follower : result.follower , following : result.following  }})
