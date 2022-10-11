@@ -66,7 +66,7 @@ const handleSubmit = async (e) => {
       set_file(null)
       set_disc("")
 
-      post_dispatch({ type: POST_ACTIONS.ADDPOST, payload: { ...json.data, desc: json_two.desc } })
+      post_dispatch({ type: POST_ACTIONS.ADDPOST, payload: { ...json, desc: json_two.desc } })
     }
 
     else if (disc !== "") {
