@@ -82,7 +82,7 @@ const handleFollow = async () => {
           <div className={issuggestion ? "w-[85%] flex justify-between items-center" : "flex justify-between items-center"}>
 
             <Link to={`/myhome/${post.userId}`} className="flex items-center">
-              <img src={`https://morbiksocial-api.cyclic.app/public/data/uploads/${post.userProfilePicture}`} alt={post.username} className='w-10 h-10 rounded-full'/>
+              <img src={post.userProfilePicture} alt={post.username} className='w-10 h-10 rounded-full'/>
               <h5 className="font-bold ml-2 font-sans">{post.username}</h5>
             </Link>
 
@@ -96,7 +96,7 @@ const handleFollow = async () => {
       </section>
     }
 
-   { post.img !== ""  && <img src={"https://morbiksocial-api.cyclic.app/public/data/uploads/" +post.img} alt={post.desc} className={is_mypost ? "w-full h-[80%]" : "w-full lg:w-4/5 lg:ml-[10%] h-[80%]"}/>}
+   { post.img !== ""  && <img src={post.img} alt={post.desc} className={is_mypost ? "w-full h-[80%]" : "w-full lg:w-4/5 lg:ml-[10%] h-[80%]"}/>}
    {
       is_mypost && <p className="p-2 text-center">{post.desc}</p>
    }

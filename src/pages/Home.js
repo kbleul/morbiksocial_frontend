@@ -107,7 +107,7 @@ const fetchRelationships = useCallback( async (type) => {
    <div className="max-h-[60vh] md:h-[80vh] overflow-y-scroll  md:overflow-y-hidden md:hover:overflow-y-scroll border-r-2 border-gray-100 mt-[5%]" >
       { relationlist.map(person => (
         <Link to={`/myhome/${person._id}`} className="flex items-center gap-2 px-20 py-2 hover:cursor-pointer hover:opacity-60" key={person._id}>
-          <img className='w-12 h-12 rounded-full' src={`https://morbiksocial-api.cyclic.app/public/data/uploads/${person.profilePicture}`} alt={person.username} />
+          <img className='w-12 h-12 rounded-full' src={person.profilePicture} alt={person.username} />
           <h5 className="font-bold ml-2 font-serif">{ person.username }</h5>
         </Link>
       ))

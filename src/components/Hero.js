@@ -3,10 +3,10 @@ const Hero = ({user}) => {
 
   return (
     <section className="bg-rose-300">
-        <img src={`https://morbiksocial-api.cyclic.app/public/data/uploads/${user.coverPicture}`} alt="cover" className="h-[70vh] w-full"/>
+        <img src={user.coverPicture} alt="cover" className="h-[70vh] w-full"/>
 
         <div className="flex absolute top-[45vh] md:top-[70%] w-full md:w-[70%] md:ml-[15%] lg:w-2/5 lg:ml-[30%] text-white  bg-[rgba(0,0,0,.5)]">
-         <img className="w-32 h-32 md:w-56 md:h-56 rounded-[15rem] mt-[15%] md:mt-1 p-2" src={ `https://morbiksocial-api.cyclic.app/public/data/uploads/${user.profilePicture}` } alt="profile" />
+         <img className="w-32 h-32 md:w-56 md:h-56 rounded-[15rem] mt-[15%] md:mt-1 p-2" src={user.profilePicture} alt="profile" />
          <div className="ml-[6%] w-full">
             <h4 className="pt-[15%] font-extrabold text-xl">{user.username}</h4>
             <p className=" px-[ 2% ] pt-[2%] pb-[10%] h-20 overflow-y-hidden mb-4">{user.disc === "" ? "..." :user.disc}</p>
