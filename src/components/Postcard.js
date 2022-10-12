@@ -78,14 +78,14 @@ const handleFollow = async () => {
    
     { !is_mypost && <section>
         <div className="flex items-center justify-between ">
-          <div className={issuggestion ? "w-[85%] flex justify-between items-center" : "flex justify-between items-center"}>
+          <div className={issuggestion ? "w-[60%] md:w-[85%] flex justify-between items-center" : "flex justify-between items-center"}>
 
             <Link to={`/myhome/${post.userId}`} className="flex items-center">
               <img src={post.userProfilePicture} alt={post.username} className='w-10 h-10 rounded-full'/>
               <h5 className="font-bold ml-2 font-sans">{post.username}</h5>
             </Link>
 
-            {issuggestion && <button className="ml-4 text-[crimson]"
+            {issuggestion && <button className="ml-4 text-[crimson] text-sm md:text-base"
             onClick={handleFollow}>{isfollowed ? "Unfollow" : "+ Follow"}</button>}
           </div>
             <p className="text-gray-400 text-sm">{post.createdAt}</p>
