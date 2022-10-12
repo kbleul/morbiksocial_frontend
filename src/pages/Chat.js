@@ -1,5 +1,7 @@
 import { useRef , useEffect , useState , useCallback } from "react"
 import {io} from "socket.io-client"
+import formatDistance from 'date-fns/formatDistance'
+
 import { useMediaQuery } from 'react-responsive';
 
 import {useAuthContext} from "../customHooks/useMyContext"
@@ -46,10 +48,12 @@ useEffect(() => {
 })  
 
   socket.current.on("getMessage", data => {
+    const newdate = formatDistance(Date.now(),Date.now());
+
     set_arrivalmessage({
       sender : data.senderId,
       text : data.text,
-      createdAt : Date.now()
+      createdAt : newdate
     })
     addNotification(data.senderId)
   })
