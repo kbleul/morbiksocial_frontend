@@ -76,8 +76,12 @@ const postCoverPicture = async (e) => {
         }
         </div>
 
-        <button className={isloading ? "hidden" : "hover:text-red-500 cursor-pointer my-4"}>Submit</button>
-        <img className={isloading ? "w-8 h-8" : "hidden" } src={loading_gif} alt="loading" />
+
+        <div className="w-full flex justify-center items-center">
+          <button className={isloading ? "hidden" : "hover:text-red-500 cursor-pointer my-4"}>Submit</button>
+          <img className={isloading ? "w-8 h-8" : "hidden" } src={loading_gif} alt="loading" />
+        </div>
+
         <hr />
 
         <button className="hover:text-red-500 cursor-pointer my-4" onClick={e =>{ e.preventDefault();  set_currenttask("others")}}>skip</button>
