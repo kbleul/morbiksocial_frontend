@@ -15,7 +15,7 @@ const Postcard = ({ post , issuggestion , is_mypost }) => {
   const [ isfollowed , set_isfollowed ] = useState(false)
 
 
- let sec_style =  post.img === "" ? "max-h-[55vh] w-[96%] md:w-[80%] ml-[2%] md:ml-[10%] lg:w-[96%] lg:ml-[2%] mt-4 mb-28" : "h-[50vh] w-[96%] md:w-[80%] ml-[2%] md:ml-[10%] mb-28 lg:w-[96%] lg:ml-[2%] mt-4" 
+ let sec_style =  post.img === "" ? " w-[96%] md:w-[80%] ml-[2%] md:ml-[10%] lg:w-[96%] lg:ml-[2%] mt-4 mb-8" : "w-[96%] md:w-[80%] ml-[2%] md:ml-[10%] mb-8 lg:w-[96%] lg:ml-[2%] mt-4" 
 
 const likeUnlike_post = async () => {
     const options = {
@@ -95,7 +95,7 @@ const handleFollow = async () => {
       </section>
     }
 
-   { post.img !== ""  && <img src={post.img} alt={post.desc} className={is_mypost ? "w-full h-[80%]" : "w-full lg:w-4/5 lg:ml-[10%] h-[80%]"}/>}
+   { post.img !== ""  && <img src={post.img} alt={post.desc} className={is_mypost ? "w-full h-[80%]" : "w-full lg:w-4/5 lg:ml-[10%] h-[80%] max-h-[50vh]"}/>}
    {
       is_mypost && <p className="p-2 text-center">{post.desc}</p>
    }
