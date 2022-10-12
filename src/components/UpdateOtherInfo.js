@@ -309,7 +309,7 @@ const postOtherInfo = async (e) => {
     <input className="w-[70%] md:w-[50%] ml-[15%] md:ml-[25%] border-b border-gray-500 focus:border-none mb-2 text-center" type="text" value={city} onChange={e => set_city(e.target.value) } />
 
     <div className="w-full flex justify-center items-center">
-      <button className={isloading ? "hidden" : "hover:text-red-500 cursor-pointer mt-8 w-[40%] ml-[30%]"}>Submit</button>
+      <button className={isloading ? "hidden" : "hover:text-red-500 cursor-pointer mt-8 w-[40%]"}>Submit</button>
       <img className={isloading ? "w-8 h-8" : "hidden" } src={loading_gif} alt="loading" />
     </div>
     <hr />

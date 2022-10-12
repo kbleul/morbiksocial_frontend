@@ -76,7 +76,7 @@ const postProfilePicture = async (e) => {
           </div>
 
           <div className="w-full flex justify-center items-center">
-            <button className="hover:text-red-500 cursor-pointer my-4">Submit</button>
+            <button className={isloading ? "hidden" :"hover:text-red-500 cursor-pointer my-4"}>Submit</button>
             <img className={isloading ? "w-8 h-8" : "hidden" } src={loading_gif} alt="loading" />
           </div>
           <hr />

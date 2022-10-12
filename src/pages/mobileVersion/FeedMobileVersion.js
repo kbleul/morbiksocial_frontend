@@ -51,7 +51,7 @@ const FeedMobileVersion = ({feedposts , feedposts_suggested , post_isloading , s
           { sugg_error && <h4 className="text-red-600 mt-64 text-center">Loading error</h4> }
   
           { feedposts_suggested.map(post => (
-            <Postcard key={post._id} post={post} />
+            <Postcard key={post._id} post={post} issuggestion/>
           ))}
   
           { feedposts_suggested.length === 0 &&  <p className="text-center text-red-400 my-24">No suggested post yet</p> }
